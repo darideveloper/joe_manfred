@@ -26,7 +26,7 @@
     {
         "name": "20201128-1.jpg",
         "url": "20201128-1.jpg",
-        "best": false,
+        "best": true,
         "description": "Without description yet",
         "size": "2048 x 2048",
         "date": "20201128"
@@ -34,7 +34,7 @@
     {
         "name": "20201125-2.jpg",
         "url": "20201125-2.jpg",
-        "best": false,
+        "best": true,
         "description": "Without description yet",
         "size": "1513 x 2048",
         "date": "20201125"
@@ -66,7 +66,7 @@
     {
         "name": "20201116-1.jpg",
         "url": "20201116-1.jpg",
-        "best": false,
+        "best": true,
         "description": "Without description yet",
         "size": "2048 x 1590",
         "date": "20201116"
@@ -98,7 +98,7 @@
     {
         "name": "20201114-1.jpg",
         "url": "20201114-1.jpg",
-        "best": false,
+        "best": true,
         "description": "Without description yet",
         "size": "1424 x 2048",
         "date": "20201114"
@@ -106,7 +106,7 @@
     {
         "name": "20201110-1.jpg",
         "url": "20201110-1.jpg",
-        "best": false,
+        "best": true,
         "description": "Without description yet",
         "size": "1609 x 2048",
         "date": "20201110"
@@ -114,7 +114,7 @@
     {
         "name": "20201108-2.jpg",
         "url": "20201108-2.jpg",
-        "best": false,
+        "best": true,
         "description": "Without description yet",
         "size": "1609 x 2048",
         "date": "20201108"
@@ -186,7 +186,7 @@
     {
         "name": "20201025-1.jpg",
         "url": "20201025-1.jpg",
-        "best": false,
+        "best": true,
         "description": "Without description yet",
         "size": "1630 x 2048",
         "date": "20201025"
@@ -194,7 +194,7 @@
     {
         "name": "20201024-1.jpg",
         "url": "20201024-1.jpg",
-        "best": false,
+        "best": true,
         "description": "Without description yet",
         "size": "1967 x 1968",
         "date": "20201024"
@@ -274,7 +274,7 @@
     {
         "name": "20200819-1.jpg",
         "url": "20200819-1.jpg",
-        "best": false,
+        "best": true,
         "description": "Without description yet",
         "size": "1440 x 1440",
         "date": "20200819"
@@ -314,7 +314,7 @@
     {
         "name": "20200731-1.jpg",
         "url": "20200731-1.jpg",
-        "best": false,
+        "best": true,
         "description": "Without description yet",
         "size": "978 x 990",
         "date": "20200731"
@@ -346,7 +346,7 @@
     {
         "name": "20200626-2.jpg",
         "url": "20200626-2.jpg",
-        "best": false,
+        "best": true,
         "description": "Without description yet",
         "size": "540 x 694",
         "date": "20200626"
@@ -402,7 +402,7 @@
     {
         "name": "20200516-1.jpg",
         "url": "20200516-1.jpg",
-        "best": false,
+        "best": true,
         "description": "Without description yet",
         "size": "1191 x 2015",
         "date": "20200516"
@@ -418,7 +418,7 @@
     {
         "name": "20200505-1.jpg",
         "url": "20200505-1.jpg",
-        "best": false,
+        "best": true,
         "description": "Without description yet",
         "size": "1768 x 2015",
         "date": "20200505"
