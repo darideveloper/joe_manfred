@@ -1,0 +1,211 @@
+/* Articles Header -------------------- */
+
+.header-section {
+    width: auto;
+    padding: var(--padding-section);
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+
+h2 {
+    display: inline;
+    margin: 0;
+    padding: 0;
+    width: 50%;
+    font-family: var(--font-titles);
+    font-size: var(--font-size-h2);
+    color: var(--color-dark-blue);
+    text-align: left;
+}
+
+.header-section a {
+    display: inline;
+    margin: 0;
+    padding: 0;
+    width: 50%;
+    font-size: var(--font-size-links);
+    color: var(--color-dark-blue);
+    text-align: right;
+}
+
+/* Articles -------------------- */
+
+.articles-container {
+    width: auto;
+    height: fit-content;
+    padding-left: 50px;
+    padding-right: 50px;
+    padding-top: 50px;
+    padding-bottom: 80px;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    overflow-x: hidden;
+}
+
+.article-container {
+    background-color: var(--color-blue);
+    width: auto;
+    height: auto;
+    display: inline;
+    margin-right: 30px;
+}
+
+article {
+    padding: 5px;
+}
+
+article figure {
+    margin: 0px;
+    height: 250px;
+    width: auto;
+}
+
+article figure img {
+    height: 100%;
+    width: auto;
+}
+
+h3 {
+    margin: 7px 0;
+    padding: 0;
+    font-weight: bold;
+    font-size: var(--font-size-h3);
+    color: var(--color-white);
+    text-align: center;
+}
+
+/* Secction button -------------------- */
+
+.section {
+    position: relative;
+}
+
+.articles-container {
+    position: relative;
+}
+
+.section-button {
+    width: 150px;
+    height: 380px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(to left, var(--color-white),  rgba(0,0,0,0));
+    position: absolute;
+    z-index: 2;
+}
+
+.section-button.left.hide {
+    display: none;
+}
+
+.section-button.rigtht {
+    background: linear-gradient(to left, var(--color-white),  rgba(0,0,0,0));
+}
+
+.section-button.left {
+    background: linear-gradient(to right, var(--color-white),  rgba(0,0,0,0));
+}
+
+.section-button.right {
+    top: 5px;
+    right: 0px;
+}
+
+.section-button.left {
+    top: 5px;
+    left: 0px;
+}
+
+.section-button img{
+    width: 35px;
+    height: 35px;
+    margin: auto 0;
+    padding: 0;
+}
+
+.section-button.left img{
+    transform: rotateZ(180deg);
+}
+
+
+
+.section-button figure {
+    width: 100%;
+    height: 100%;
+    opacity: 20%;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    line-height: 100%;
+}
+
+.section-button figure:hover {
+    opacity: 50%;
+}
+
+.section-button figure:active {
+    opacity: 100%;
+}
+
+/* Contact secction -------------------- */
+
+.contact {
+    margin-top: 30px;
+    text-align: center;
+}
+
+.contact .contact-button {
+    color: var(--color-dark-blue);
+    font-size: var(--font-size-h2);
+    font-family: var(--font-titles);
+    padding: 7px 150px;
+    width: fit-content;
+    text-decoration: none;
+}
+
+.contact p {
+    height: 70px;
+    line-height: 70px;
+    
+}
+
+.contact .social-buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.contact .social-buttons * {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;   
+    display: block; 
+    margin: 0 15px;
+
+    background-size: 80%;
+    background-repeat: no-repeat;
+    background-position-x: center;
+    background-position-y: center;
+}
+
+.facebook {
+    background-image: url(../svg/facebook.svg);
+}
+
+.instagram {
+    background-image: url(../svg/instagram.svg);
+}
+
+.twitter {
+    background-image: url(../svg/twitter.svg);
+}
+
+.pinterest {
+    background-image: url(../svg/pinterest.svg);
+
+}
+
