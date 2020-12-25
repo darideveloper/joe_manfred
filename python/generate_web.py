@@ -13,8 +13,8 @@ class Generate ():
         """
 
         self.path = path_web
-        self.index_file  = open(os.path.join (self.path, "index-edited.html"), "r")
-        self.to_file = open(os.path.join (self.path, "index2.html"), "w")
+        self.index_file  = open(os.path.join (self.path, "index-template.html"), "r")
+        self.to_file = open(os.path.join (self.path, "index.html"), "w")
 
         csv_file = open (os.path.join (os.path.dirname (__file__), "data.csv"))
         self.data = self.__get_data (csv_file)

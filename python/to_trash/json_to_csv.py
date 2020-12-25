@@ -1,7 +1,7 @@
 #! python3
 
 from rwJson import readJsonFile
-import os, csv, pprint
+import os, csv
 
 path = os.path.dirname (__file__)
 file_json = os.path.join (path, "data.json") 
