@@ -13,8 +13,8 @@ class Generate ():
         """
 
         self.path = path_web
-        self.index_file  = open(os.path.join (path, "index-edited.html"), "r")
-        self.to_file = open(os.path.join (path, "index2.html"), "w")
+        self.index_file  = open(os.path.join (self.path, "index-edited.html"), "r")
+        self.to_file = open(os.path.join (self.path, "index2.html"), "w")
 
         csv_file = open (os.path.join (os.path.dirname (__file__), "data.csv"))
         self.data = self.__get_data (csv_file)
@@ -34,6 +34,9 @@ class Generate ():
         """
         Generate file "index.html", with the correct files and information
         """
+
+        print ("Generating {} file...".format ("index.html"))
+
 
         # all lines of the template html file
         lines_html = []
@@ -131,8 +134,3 @@ class Generate ():
 
         
     
-parent_path = os.path.dirname (os.path.dirname (__file__))
-path = os.path.join (parent_path, "web")
-
-my_generate = Generate (path)
-my_generate.index()

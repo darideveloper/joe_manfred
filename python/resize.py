@@ -5,21 +5,29 @@ from PIL import Image
 
 class Resize (): 
     """rize image folder with specific with or height"""
-    def __init__ (self, folder_origin, folder_destinarion, ): 
+    def __init__ (self, folder_origin, folder_destinarion, auto_replace = False): 
         """Constructor"""
 
         self.data = []
 
+        print ("Processing images...")
+
         images = os.listdir (folder_origin)
         for image in images:
-
-
-            print ("Resizing image: {}".format(image))
 
             current_image = Image.open (os.path.join(folder_origin, image))
             width, height = current_image.size
             resized_image = current_image.resize ((int(250*width/height), int(250)))
-            resized_image.save(os.path.join(folder_destinarion, image))
+
+            output_file = os.path.join(folder_destinarion, image)
+
+            # Omit existinbg images
+            if os.path.isfile (output_file) and auto_replace == False: 
+                # print ("Image: {} already exist in the destination folder: omited".format(image))
+                continue
+            
+            print ("Resizing image: {}...".format(image))
+            resized_image.save(output_file)
 
     #         image_data = {
     #             "name": image, 
