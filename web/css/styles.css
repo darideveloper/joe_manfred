@@ -29,6 +29,7 @@ main {
     margin: 0;
     padding: 0;
     background-color: var(--color-white);
+    padding-bottom: 70px;
 }
 
 h1 {
@@ -65,6 +66,18 @@ h1 {
     box-shadow: inset 0px 4px 10px rgba(0,0,0,.25);
 }
 
+.button-small {
+    box-shadow: 1px 1px 1px rgba(0,0,0,.25)
+}
+
+.button-small:hover {
+    box-shadow: 1px 1px 5px rgba(0,0,0,.50)
+}
+
+.button-small:active {
+    box-shadow: inset 1px 1px 1px rgba(0,0,0,.25)
+}
+
 a {
     text-decoration: underline;
     font-size: var(--font-size-links);
@@ -80,6 +93,27 @@ a {
     color: white;
 }
 
+.article-container {
+    background-color: var(--color-blue);
+    height: auto;
+}
+
+article {
+    padding: 5px;
+}
+
+article figure {
+    margin: 0px;
+}
+
+h3 {
+    margin: 7px 0;
+    padding: 0;
+    font-weight: bold;
+    font-size: var(--font-size-h3);
+    color: var(--color-white);
+    text-align: center;
+}
 
 /* Header -------------------- */
 
@@ -119,7 +153,6 @@ a {
 footer {
     width: 100%;
     margin: 0;
-    margin-top: 70px;
     padding: 0;
     background-color: lightblue;
     text-align: center;

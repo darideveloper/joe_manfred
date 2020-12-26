@@ -46,19 +46,12 @@ h2 {
 }
 
 .article-container {
-    background-color: var(--color-blue);
     width: auto;
-    height: auto;
     display: inline;
     margin-right: 30px;
 }
 
-article {
-    padding: 5px;
-}
-
 article figure {
-    margin: 0px;
     height: 250px;
     width: auto;
 }
@@ -66,15 +59,6 @@ article figure {
 article figure img {
     height: 100%;
     width: auto;
-}
-
-h3 {
-    margin: 7px 0;
-    padding: 0;
-    font-weight: bold;
-    font-size: var(--font-size-h3);
-    color: var(--color-white);
-    text-align: center;
 }
 
 /* Secction button -------------------- */
@@ -200,12 +184,12 @@ h3 {
     background-image: url(../svg/instagram.svg);
 }
 
-.twitter {
-    background-image: url(../svg/twitter.svg);
-}
-
 .pinterest {
     background-image: url(../svg/pinterest.svg);
+}
+
+.youtube {
+    background-image: url(../svg/youtube.svg);
 
 }
 

@@ -34,19 +34,15 @@
 
 
 .article-container {
-    background-color: var(--color-blue);
     width: 100%;
-    height: auto;
     display: block;
 }
 
 article {
-    padding: 5px;
     margin-bottom: 20px;
 }
 
 article figure {
-    margin: 0px;
     height: auto;
     width: 100%;
 }
@@ -56,11 +52,3 @@ article figure img {
     width: 100%;
 }
 
-h3 {
-    margin: 7px 0;
-    padding: 0;
-    font-weight: bold;
-    font-size: var(--font-size-h3);
-    color: var(--color-white);
-    text-align: center;
-}
