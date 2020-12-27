@@ -51,7 +51,7 @@ class Generate ():
         Generate file "index.html", with the correct files and information
         """
 
-        print ("Generating {} file...".format ("index.html"))
+        print ("Generating index...")
 
 
         # all lines of the template html file
@@ -164,6 +164,8 @@ class Generate ():
         Generate ALL boards html files
         """
 
+        print ("Generating boards...")
+
         # Position of each section value inside the data file
         data_index_board_best = 6
         data_index_board_all = 5
@@ -275,6 +277,8 @@ class Generate ():
         """
         Generate each article of the data base
         """
+
+        print ("Generating articles...")
 
         for article in self.data: 
 
