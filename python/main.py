@@ -23,6 +23,7 @@ path = os.path.join (parent_path, "web")
 # Generate Html Files
 my_generate = Generate (path)
 my_generate.index()
-my_generate.board(6)
+my_generate.boards()
+my_generate.articles()
 
 print ("Done")

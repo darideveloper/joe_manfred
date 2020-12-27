@@ -12,17 +12,24 @@ class Generate ():
         Constructor of the class. Get path of all documents
         """
 
-        self.path = path_web
+        self.path_web = path_web
+        self.path_python = os.path.dirname (__file__)
+        self.path_templates = os.path.join (self.path_python, "templates html")
+
 
         # Index files
-        self.index_file_template  = open(os.path.join (self.path, "index-template.html"), "r")
-        self.index_file = open(os.path.join (self.path, "index.html"), "w")
+        self.index_file_template  = open(os.path.join (self.path_templates, "index-template.html"), "r")
+        self.index_file = open(os.path.join (self.path_web, "index.html"), "w")
 
-        # Index files
-        self.board_file_template  = open(os.path.join (self.path, "board-template.html"), "r")
-        self.board_best = open(os.path.join (self.path, "board-best.html"), "w")
-        self.board_all = open(os.path.join (self.path, "board-all.html"), "w")
-        self.board_videos = open(os.path.join (self.path, "board-videos.html"), "w")
+        # Board files
+        self.board_file_template  = open(os.path.join (self.path_templates, "board-template.html"), "r")
+        self.board_best = open(os.path.join (self.path_web, "board-best.html"), "w")
+        self.board_all = open(os.path.join (self.path_web, "board-all.html"), "w")
+        self.board_videos = open(os.path.join (self.path_web, "board-videos.html"), "w")
+
+        # Article files
+        self.article_file_template  = open(os.path.join (self.path_templates, "article-template.html"), "r")
+        self.articles_folder = os.path.join (self.path_web, "articles")
 
         # Data CSV
         csv_file = open (os.path.join (os.path.dirname (__file__), "data.csv"))
@@ -58,7 +65,7 @@ class Generate ():
         counter_line = 0
         elements_counter = 0
 
-        # Read amns save each line of html file
+        # Read and save each line of html file
         for line in self.index_file_template.readlines():
             
             lines_html.append (line)
@@ -131,24 +138,43 @@ class Generate ():
                 articles_section += 1
 
                 # Save variables
-                url = "imgs/small/" + data_article[3]
+                src = "imgs/small/" + data_article[3]
                 name = data_article[0]
+                link = "articles/" + str(data_article[0]).replace (" ", "-") + ".html"
+    
 
                 # Generate article html
                 articles_html.append ('                <div class="article-container button">')
                 articles_html.append ('                    <article>')
-                articles_html.append ('                        <figure>')
-                articles_html.append ('                            <img src="{}"  alt="">'.format (url))
-                articles_html.append ('                        </figure>')
-                articles_html.append ('                        <h3>{}</h3>'.format(name))
+                articles_html.append ('                        <a href="{}">'.format (link))
+                articles_html.append ('                            <figure>')
+                articles_html.append ('                                <img src="{}"  alt="">'.format (src))
+                articles_html.append ('                            </figure>')
+                articles_html.append ('                            <h3>{}</h3>'.format(name))
+                articles_html.append ('                        </a>')
                 articles_html.append ('                   </article>')
                 articles_html.append ('                </div>')
 
             article_counter +=1 
 
         return articles_html
-                
-    def board (self, board):
+    
+    def boards (self): 
+        """
+        Generate ALL boards html files
+        """
+
+        # Position of each section value inside the data file
+        data_index_board_best = 6
+        data_index_board_all = 5
+        data_index_board_videos = 4
+
+        # Generate each board
+        self.__board (data_index_board_best, self.board_best)
+        self.__board (data_index_board_all, self.board_all)
+        self.__board (data_index_board_videos, self.board_videos)
+
+    def __board (self, data_index, board_file):
         """
         Generate a board html file, with the correct format and information
         """
@@ -175,11 +201,8 @@ class Generate ():
             
             counter_line+=1
 
-        # Position of each section value inside the data file
-        board_best = 6
-        board_all = 5
-        board_videos = 4
-
+        # Move the pointer to the start of the file
+        self.board_file_template.seek (0)
 
         # Get all text and format sections
         html_text = []
@@ -188,16 +211,17 @@ class Generate ():
         html_text += (lines_html [:position_board]) 
 
         # Board
-        html_text += (self.__get_board (board_best))
+        html_text += (self.__get_board (data_index))
 
         # Footer
         html_text += (lines_html [position_board:]) 
 
         # Write information in file
         for line in html_text: 
-            self.board_best.write ("\n" + line.rstrip())
+            board_file.write ("\n" + line.rstrip())
 
-    def __get_board (self, board): 
+
+    def __get_board (self, data_index): 
         """
         Reurn a list with html text lines, formated and with image of the boards
         """
@@ -205,11 +229,12 @@ class Generate ():
         articles_html = []
 
         # get articles of the specificv section
-        artiles_section =  self.__get_articles_section (board, max_10 = False)
+        artiles_section =  self.__get_articles_section (data_index, max_10 = False)
 
         # Calculate the number of articles in each column
-        articles_num = len (artiles_section) / 8
-        articles_in_column =  round (articles_num/4) * 8
+        articles_num = len (artiles_section) / 10
+
+        articles_in_column =  round (articles_num/4) * 10
 
         # List of list of articles in each column
         articles_columns = []
@@ -221,7 +246,6 @@ class Generate ():
         articles_columns.append(artiles_section[articles_in_column*3:])
 
         
-
         # Add title and grid open
         articles_html.append ('        <h1>My Best Draws</h1>')
         articles_html.append ('        <div class="board">')
@@ -246,6 +270,85 @@ class Generate ():
         articles_html.append ('        </div>')
 
         return articles_html
+
+    def articles (self): 
+        """
+        Generate each article of the data base
+        """
+
+        for article in self.data: 
+
+            name = article [0]
+            date = article [1]
+            size = article [2]
+            link = "../imgs/all/" + article [3]
+            description = article [7]
+
+            # all lines of the template html file
+            lines_html = []
+
+            # get position for insert html code
+            position = 0
+
+            counter_line = 0
+
+            # Read and save each line of html file
+            for line in self.article_file_template.readlines():
+            
+                lines_html.append (line)
+
+                # Identify speicic line in the text
+                elemnt = '<main>'
+
+                # Get position of each line for main section
+                if line.strip() == elemnt: 
+                    position = counter_line
+                
+                counter_line += 1
+            
+            # Retornar puntero al comienzo del documento
+            self.article_file_template.seek (0)
+            
+            # Get all text and formated sections
+            html_text = []
+
+            # Header
+            html_text += (lines_html [:position]) 
+            
+            # Article
+            article_lines = self.__article (name, date, size, description, link)
+            html_text += article_lines
+
+            # Footer
+            html_text += (lines_html [position:]) 
+
+            # Write data in file
+            article_name = name.replace (" ", "-") + ".html"
+            article_file = open (os.path.join (self.articles_folder, article_name), "w")
+            for line in html_text: 
+                article_file.write ("\n" + line.rstrip())
+
+
+    def __article (self, name, date, size, description, link):
+        """
+        Generate article html text with specific information
+        """
+
+        article_html = []
+
+        article_html.append ('        <h1>{}</h1>'.format (name.title()))
+        article_html.append ('        <h3>Date: {}</h3>'.format(date))
+        article_html.append ('        <h3>Size: {}</h3>'.format(size))
+        article_html.append ('        <p>{}</p>'.format(description))
+        article_html.append ('        <div class="main-image-wrapper">')
+        article_html.append ('            <figure class="main-image max-height">')
+        article_html.append ('                <img src="{}" alt="">'.format(link))
+        article_html.append ('            </figure>')
+        article_html.append ('        </div>')
+
+        return article_html
+
+
 
 
         

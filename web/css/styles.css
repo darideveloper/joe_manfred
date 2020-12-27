@@ -86,8 +86,7 @@ a {
 
 .link:hover {
     color: black;
-}
-
+}                              
 
 .link:active {
     color: white;
@@ -101,6 +100,11 @@ a {
 article {
     padding: 5px;
 }
+
+article a {
+    text-decoration: none;
+}
+
 
 article figure {
     margin: 0px;
