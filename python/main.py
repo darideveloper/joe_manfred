@@ -1,7 +1,7 @@
 #! python3
 
 import os
-from resize import Resize
+from resize_images import Resize
 from rwJson import writeJsonFile
 from generate_web import Generate
 from video_master import Video_master
