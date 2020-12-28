@@ -25,3 +25,10 @@ article a figure.video:hover video {
     display: block;
 }
 
+.section-button figure img {
+    transition: transform .8s;
+}
+
+.section-button:hover figure img {
+    transform: scale(1.5);
+}

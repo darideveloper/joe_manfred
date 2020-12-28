@@ -30,6 +30,10 @@ h2 {
     text-align: right;
 }
 
+.header-section a.hide {
+    display: none;
+}
+
 /* Articles -------------------- */
 
 .articles-container {
