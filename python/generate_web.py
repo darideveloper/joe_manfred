@@ -139,16 +139,30 @@ class Generate ():
 
                 # Save variables
                 src = "imgs/small/" + data_article[3]
+                scr_video = "video/" + data_article[3][:data_article[3].rfind (".")] + ".mp4"
                 name = data_article[0]
                 link = "articles/" + str(data_article[0]).replace (" ", "-") + ".html"
+                
+                # verify if section article is video or image
+                if section == 4: 
+                    class_article = "video"
+                else: 
+                    class_article = "img"
     
 
                 # Generate article html
                 articles_html.append ('                <div class="article-container button">')
                 articles_html.append ('                    <article>')
                 articles_html.append ('                        <a href="{}">'.format (link))
-                articles_html.append ('                            <figure>')
+                articles_html.append ('                            <figure class={}>'.format(class_article))
                 articles_html.append ('                                <img src="{}"  alt="">'.format (src))
+
+                # If its videos, ad preview
+                if class_article == "video": 
+                    articles_html.append ('                                <video src="{}" width="auto" height="100%" type="video/mp4" autoplay muted loop></video>'.format (scr_video))
+
+
+
                 articles_html.append ('                            </figure>')
                 articles_html.append ('                            <h3>{}</h3>'.format(name))
                 articles_html.append ('                        </a>')
@@ -181,8 +195,6 @@ class Generate ():
         Generate a board html file, with the correct format and information
         """
 
-        # to_file = os.path.basename (board)
-        # print ("Generating {} file...".format (to_file))
 
         # all lines of the template html file
         lines_html = []

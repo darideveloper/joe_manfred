@@ -108,6 +108,7 @@ article a {
 
 article figure {
     margin: 0px;
+    overflow: hidden;
 }
 
 h3 {

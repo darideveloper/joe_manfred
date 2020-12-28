@@ -26,7 +26,7 @@ class Resize ():
                 # print ("Image: {} already exist in the destination folder: omited".format(image))
                 continue
             
-            print ("Resizing image: {}...".format(image))
+            print ("Image {} resized".format(image))
             resized_image.save(output_file)
 
     #         image_data = {
