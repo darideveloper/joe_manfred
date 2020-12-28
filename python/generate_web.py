@@ -128,9 +128,13 @@ class Generate ():
         articles_section = 0
         while article_counter <= max_articles:
 
-            # Stop program if it request only ten articles
-            if max_10 and articles_section >= 10:
-                break
+            # Stop program if it request only ten articles | detect if it is index or board page
+            if max_10: 
+                video_size = 'width="auto" height="100%"'
+                if articles_section >= 10:
+                    break
+            else: 
+                video_size = 'width="100%" height="auto"'
 
                 
             if self.data[article_counter][section].strip().lower() == 'true':
@@ -159,7 +163,7 @@ class Generate ():
 
                 # If its videos, ad preview
                 if class_article == "video": 
-                    articles_html.append ('                                <video src="{}" width="auto" height="100%" type="video/mp4" autoplay muted loop></video>'.format (scr_video))
+                    articles_html.append ('                                <video src="{}" {} type="video/mp4" autoplay muted loop></video>'.format (scr_video, video_size))
 
 
 
@@ -245,10 +249,30 @@ class Generate ():
         # get articles of the specificv section
         artiles_section =  self.__get_articles_section (data_index, max_10 = False)
 
-        # Calculate the number of articles in each column
-        articles_num = len (artiles_section) / 10
+        # Get data for videos and gereate titles
+        if data_index == 6: 
+            # Title
+            title = "My best works"
 
-        articles_in_column =  round (articles_num/4) * 10
+            # Calculate the number of articles in each column
+            articles_num = len (artiles_section) / 10
+            articles_in_column =  round (articles_num/4) * 10
+        elif data_index == 5: 
+            # Title
+            title = "All works"
+
+            # Calculate the number of articles in each column
+            articles_num = len (artiles_section) / 10
+            articles_in_column =  round (articles_num/4) * 10
+        elif  data_index == 4: 
+            # Title
+            title = "Videos"
+
+            # Calculate the number of articles in each column
+            articles_num = len (artiles_section) / 11
+            articles_in_column =  round (articles_num/4) * 11
+
+
 
         # List of list of articles in each column
         articles_columns = []
@@ -261,7 +285,7 @@ class Generate ():
 
         
         # Add title and grid open
-        articles_html.append ('        <h1>My Best Draws</h1>')
+        articles_html.append ('        <h1>{}</h1>'.format (title))
         articles_html.append ('        <div class="board">')
         
 
