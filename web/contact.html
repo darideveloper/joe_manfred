@@ -50,19 +50,28 @@
                 </div>
                 
             </div>
-            <div class="form">
+            <!-- <form name="submit-to-google-sheet">
+                <input name="email" type="email" placeholder="Email" required>
+                <button type="submit">Send</button>
+            </form> -->
+
+            <form class="form" name="submit-to-google-sheet">
                 <!-- <label for="name">What is your name?</label> -->
-                <input type="text" class="input-text" id="name" placeholder="What is your name?">
+                <input name="name" type="text" class="input-text" id="name" placeholder="What is your name?" required>
                 <!-- <label for="name">What is your email?</label> -->
-                <input type="email" class="input-text" id="email" placeholder="What is your email?">
+                <input name="email" type="email" class="input-text" id="email" placeholder="What is your email?" required>
                 <!-- <label for="name">Type someting</label> -->
-                <textarea name="message" class="input-text" cols="30" rows="10" placeholder="Write me something..."></textarea>
-                <input type="submit" class="input-submit button" value="Submit">
-            </div>
+                <textarea name="message" class="input-text" id="message" cols="30" rows="10" placeholder="Write me something..." required></textarea>
+                <input type="submit" class="input-submit button" value="Submit" id ="submit">
+            </form>
         </div>        
     </main>
     <footer>
         <small>Designed by Dari Developer | <a class="link" href="mailto: hernandezdarifrancisco@gmail.com">hernandezdarifrancisco@gmail.com</a> © 2020</small>
     </footer>
 </body>
+<script src="https://wzrd.in/standalone/formdata-polyfill"></script>
+<script src="https://wzrd.in/standalone/promise-polyfill@latest"></script>
+<script src="https://wzrd.in/standalone/whatwg-fetch@latest"></script>
+<script type="text/javascript" type="module" src="js/form.js"></script>
 </html>
