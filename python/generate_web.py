@@ -1,6 +1,6 @@
 #! python3
 
-import os, bs4, pprint, csv, sys
+import os, bs4, csv, sys
 
 class Generate (): 
     """
@@ -297,7 +297,6 @@ class Generate ():
 
             # Save articles of the column
             for article in articles_column: 
-                # print (article)
                 articles_html.append (article)
 
             # Add closed tag of suboard
@@ -322,6 +321,9 @@ class Generate ():
             date = article [1]
             size = article [2]
             link = "../imgs/all/" + article [3]
+            video = article [4]
+            ytframe = article[8]
+
             description = article [7]
 
             # all lines of the template html file
@@ -356,7 +358,7 @@ class Generate ():
             html_text += (lines_html [:position]) 
             
             # Article
-            article_lines = self.__article (name, date, size, description, link)
+            article_lines = self.__article (name, date, size, description, link, video, ytframe)
             html_text += article_lines
 
             # Footer
@@ -369,21 +371,49 @@ class Generate ():
                 article_file.write ("\n" + line.rstrip())
 
 
-    def __article (self, name, date, size, description, link):
+    def __article (self, name, date, size, description, link, video, ytframe):
         """
         Generate article html text with specific information
         """
 
         article_html = []
 
-        article_html.append ('        <h1>{}</h1>'.format (name.title()))
-        article_html.append ('        <h3>Date: {}</h3>'.format(date))
-        article_html.append ('        <h3>Size: {}</h3>'.format(size))
-        article_html.append ('        <p>{}</p>'.format(description))
-        article_html.append ('        <div class="main-image-wrapper">')
-        article_html.append ('            <figure class="main-image max-height">')
-        article_html.append ('                <img src="{}" alt="">'.format(link))
-        article_html.append ('            </figure>')
+
+
+        # Verify video  or image article
+        if str(video).lower().strip() == "true":
+
+            name_image = name[:name.lower().find(" speed")]
+
+            article_html.append ('        <h1>{}</h1>'.format (name.title()))
+            article_html.append ('        <h3>Date: {}</h3>'.format(date))
+            article_html.append ('        <p>{}</p>'.format(description))
+
+            article_html.append ('            <div class="video-container">')
+            article_html.append ('                <figure class="main-video">')
+            article_html.append ('                    {}'.format (ytframe))
+            article_html.append ('                </figure>')
+            article_html.append ('                <div class="final-image button">')
+            article_html.append ('                    <h3>Final image:</h3>')
+            article_html.append ('                    <a href="{}">'.format (name_image.replace (" ", "-") + ".html"))
+            article_html.append ('                       <figure>')
+            article_html.append ('                            <img src="{}" alt="">'.format ("../imgs/small/" + name_image + ".jpg"))
+            article_html.append ('                        </figure>')
+            article_html.append ('                    </a>')
+            article_html.append ('                </div>')
+            article_html.append ('            </div>')
+        else: 
+            article_html.append ('        <h1>{}</h1>'.format (name.title()))
+            article_html.append ('        <h3>Date: {}</h3>'.format(date))
+            article_html.append ('        <h3>Size: {}</h3>'.format(size))
+
+            article_html.append ('        <p>{}</p>'.format(description))
+            article_html.append ('        <div class="main-image-wrapper">')
+            article_html.append ('            <figure class="main-image max-height">')
+            article_html.append ('                <img src="{}" alt="">'.format(link))
+            article_html.append ('            </figure>')
+
+
         article_html.append ('        </div>')
 
         return article_html

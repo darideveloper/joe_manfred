@@ -17,7 +17,7 @@ class Resize ():
 
             current_image = Image.open (os.path.join(folder_origin, image))
             width, height = current_image.size
-            resized_image = current_image.resize ((int(250*width/height), int(250)))
+            resized_image = current_image.resize ((int(350*width/height), int(350)))
 
             output_file = os.path.join(folder_destinarion, image)
 
