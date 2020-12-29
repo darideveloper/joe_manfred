@@ -1,6 +1,7 @@
 #! python3
 
 import os, bs4, csv, sys
+from PIL import Image
 
 class Generate (): 
     """
@@ -89,9 +90,9 @@ class Generate ():
             counter_line += 1
 
         # Position of each section ¿value inside the data file
-        index_section_best = 6
-        index_section_all = 5
-        index_section_videos = 4
+        index_section_best = 5
+        index_section_all = 4
+        index_section_videos = 3
 
         # Get all text and formated sections
         html_text = []
@@ -142,13 +143,13 @@ class Generate ():
                 articles_section += 1
 
                 # Save variables
-                src = "imgs/small/" + data_article[3]
-                scr_video = "video/" + data_article[3][:data_article[3].rfind (".")] + ".mp4"
+                src = "imgs/small/" + data_article[2]
+                scr_video = "video/" + data_article[2][:data_article[2].rfind (".")] + ".mp4"
                 name = data_article[0]
                 link = "articles/" + str(data_article[0]).replace (" ", "-") + ".html"
                 
                 # verify if section article is video or image
-                if section == 4: 
+                if section == 3: 
                     class_article = "video"
                 else: 
                     class_article = "img"
@@ -185,9 +186,9 @@ class Generate ():
         print ("Generating boards...")
 
         # Position of each section value inside the data file
-        data_index_board_best = 6
-        data_index_board_all = 5
-        data_index_board_videos = 4
+        data_index_board_best = 5
+        data_index_board_all = 4
+        data_index_board_videos = 3
 
         # Generate each board
         self.__board (data_index_board_best, self.board_best)
@@ -250,21 +251,21 @@ class Generate ():
         artiles_section =  self.__get_articles_section (data_index, max_10 = False)
 
         # Get data for videos and gereate titles
-        if data_index == 6: 
+        if data_index == 5: 
             # Title
             title = "My best works"
 
             # Calculate the number of articles in each column
             articles_num = len (artiles_section) / 10
             articles_in_column =  round (articles_num/4) * 10
-        elif data_index == 5: 
+        elif data_index == 4: 
             # Title
             title = "All works"
 
             # Calculate the number of articles in each column
             articles_num = len (artiles_section) / 10
             articles_in_column =  round (articles_num/4) * 10
-        elif  data_index == 4: 
+        elif  data_index == 3: 
             # Title
             title = "Videos"
 
@@ -317,72 +318,73 @@ class Generate ():
 
         for article in self.data: 
 
-            name = article [0]
-            date = article [1]
-            size = article [2]
-            link = "../imgs/all/" + article [3]
-            video = article [4]
-            ytframe = article[8]
+            # Skip header 
+            if self.data.index (article) >= 1: 
 
-            description = article [7]
 
-            # all lines of the template html file
-            lines_html = []
+                name = article [0]
+                date = article [1]
+                file = article [2]
+                video = article [3]
+                ytframe = article[7]
+                description = article [6]
 
-            # get position for insert html code
-            position = 0
+                # all lines of the template html file
+                lines_html = []
 
-            counter_line = 0
+                # get position for insert html code
+                position = 0
 
-            # Read and save each line of html file
-            for line in self.article_file_template.readlines():
-            
-                lines_html.append (line)
+                counter_line = 0
 
-                # Identify speicic line in the text
-                elemnt = '<main>'
-
-                # Get position of each line for main section
-                if line.strip() == elemnt: 
-                    position = counter_line
+                # Read and save each line of html file
+                for line in self.article_file_template.readlines():
                 
-                counter_line += 1
-            
-            # Retornar puntero al comienzo del documento
-            self.article_file_template.seek (0)
-            
-            # Get all text and formated sections
-            html_text = []
+                    lines_html.append (line)
 
-            # Header
-            html_text += (lines_html [:position]) 
-            
-            # Article
-            article_lines = self.__article (name, date, size, description, link, video, ytframe)
-            html_text += article_lines
+                    # Identify speicic line in the text
+                    elemnt = '<main>'
 
-            # Footer
-            html_text += (lines_html [position:]) 
+                    # Get position of each line for main section
+                    if line.strip() == elemnt: 
+                        position = counter_line + 1
+                    
+                    counter_line += 1
+                
+                # Retornar puntero al comienzo del documento
+                self.article_file_template.seek (0)
+                
+                # Get all text and formated sections
+                html_text = []
 
-            # Write data in file
-            article_name = name.replace (" ", "-") + ".html"
-            article_file = open (os.path.join (self.articles_folder, article_name), "w")
-            for line in html_text: 
-                article_file.write ("\n" + line.rstrip())
+                # Header
+                html_text += (lines_html [:position]) 
+                
+                # Article
+                article_lines = self.__article (name, date, description, file, video, ytframe)
+                html_text += article_lines
+
+                # Footer
+                html_text += (lines_html [position:]) 
+
+                # Write data in file
+                article_name = name.replace (" ", "-") + ".html"
+                article_file = open (os.path.join (self.articles_folder, article_name), "w")
+                for line in html_text: 
+                    article_file.write ("\n" + line.rstrip())
 
 
-    def __article (self, name, date, size, description, link, video, ytframe):
+    def __article (self, name, date, description, file, video, ytframe):
         """
         Generate article html text with specific information
         """
 
         article_html = []
 
-
-
         # Verify video  or image article
         if str(video).lower().strip() == "true":
-
+            
+            # Name of the image
             name_image = name[:name.lower().find(" speed")]
 
             article_html.append ('        <h1>{}</h1>'.format (name.title()))
@@ -403,16 +405,27 @@ class Generate ():
             article_html.append ('                </div>')
             article_html.append ('            </div>')
         else: 
+
+            # Size of the image
+            img_path = os.path.join(self.path_web, "imgs", "all", file)
+            img = Image.open (img_path)
+            width, height = img.size
+            size = "{} x {} px".format (width, height)
+
+            # Get image url
+            link = "../imgs/all/" + file
+
             article_html.append ('        <h1>{}</h1>'.format (name.title()))
             article_html.append ('        <h3>Date: {}</h3>'.format(date))
             article_html.append ('        <h3>Size: {}</h3>'.format(size))
-
             article_html.append ('        <p>{}</p>'.format(description))
             article_html.append ('        <div class="main-image-wrapper">')
             article_html.append ('            <figure class="main-image max-height">')
+            article_html.append ('                <div class="text-container">')
+            article_html.append ('                    <h3 > > Click to resize < </h3>')
+            article_html.append ('                </div>')
             article_html.append ('                <img src="{}" alt="">'.format(link))
             article_html.append ('            </figure>')
-
 
         article_html.append ('        </div>')
 

@@ -1,5 +1,4 @@
 /* Zoom articles animation */
-
 article a figure.img img {
     transition: transform 1s;
 }
@@ -31,4 +30,72 @@ article a figure.video:hover video {
 
 .section-button:hover figure img {
     transform: scale(1.5);
+}
+
+
+/* ARTICLE PAGE*/
+
+/* Black screen botton */
+.main-image {
+    background-color: rgba(0, 0, 0, 0.61);
+    height: auto;
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.text-container {
+    display: none;
+    
+}
+
+.text-container h3 {
+    display: none;
+}
+
+
+.main-image:hover .text-container {
+    position: absolute; 
+    z-index: 2;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;    
+    z-index: 2;
+    background-color: rgba(0, 0, 0, 0.61);
+    
+}
+
+.main-image:hover  .text-container h3 {
+    color: white;
+    display: block;
+    font-size: var(--font-size-h2);
+}
+
+
+/* Resize image with class */
+.main-image.max-height {
+    height: calc(100vh - 10px);
+    width: auto;
+}
+
+.main-image.max-height img {
+    height: 100%;
+    width: auto;
+}
+
+.main-image.max-width {
+    height: auto;
+    width: calc(100vw - 100px)
+}
+
+.main-image.max-width img {
+    height: auto;
+    width: 100%;
 }

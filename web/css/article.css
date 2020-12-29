@@ -1,4 +1,4 @@
-h3,p,a {
+h3,p, p > a {
     color: var(--color-dark-blue);
     text-align: center;
     font-size: var(--font-size-h3);
@@ -20,28 +20,6 @@ h3,p,a {
 
 .main-image img {
     height: 100%;
-}
-
-/*Resize image with class*/
-
-.main-image.max-height {
-    height: calc(100vh - 10px);
-    width: auto;
-}
-
-.main-image.max-height img {
-    height: 100%;
-    width: auto;
-}
-
-.main-image.max-width {
-    height: auto;
-    width: calc(100vw - 100px)
-}
-
-.main-image.max-width img {
-    height: auto;
-    width: 100%;
 }
 
 /*Video styles*/
