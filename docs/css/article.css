@@ -82,3 +82,23 @@ h3,p, p > a {
 
 
 }
+
+@media screen and (max-width: 767px) {
+    /* Mobile L */
+
+    /* Resize image with class */
+    .main-image.max-height {
+        height: auto;
+        width: calc(100vw - 100px)
+    }
+
+    .main-image.max-height img {
+        height: auto;
+        width: 100%;
+    }
+
+    .main-image.max-width {
+        height: auto;
+        width: calc(100vw - 0px)
+    }    
+}
