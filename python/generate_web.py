@@ -255,56 +255,25 @@ class Generate ():
             # Title
             title = "My best works"
 
-            # Calculate the number of articles in each column
-            articles_num = len (artiles_section) / 10
-            articles_in_column =  round (articles_num/4) * 10
         elif data_index == 4: 
             # Title
             title = "All works"
 
-            # Calculate the number of articles in each column
-            articles_num = len (artiles_section) / 10
-            articles_in_column =  round (articles_num/4) * 10
         elif  data_index == 3: 
             # Title
             title = "Videos"
 
-            # Calculate the number of articles in each column
-            articles_num = len (artiles_section) / 11
-            articles_in_column =  round (articles_num/4) * 11
-
-
-
-        # List of list of articles in each column
-        articles_columns = []
-
-        # Generate each column with subarticles
-        articles_columns.append(artiles_section[:articles_in_column])
-        articles_columns.append(artiles_section[articles_in_column:articles_in_column*2])
-        articles_columns.append(artiles_section[articles_in_column*2:articles_in_column*3])
-        articles_columns.append(artiles_section[articles_in_column*3:])
-
         
         # Add title and grid open
         articles_html.append ('        <h1>{}</h1>'.format (title))
-        articles_html.append ('        <div class="board">')
-        
+        articles_html.append ('        <div id="board">')
 
-        # Add open and close tag to each section
-        for articles_column in articles_columns:
+        # Save articles of the column
+        for article in artiles_section: 
+            articles_html.append (article)
 
-            # Add open tag of suboard
-            articles_html.append ('            <section class="sub-board">')
 
-            # Save articles of the column
-            for article in articles_column: 
-                articles_html.append (article)
-
-            # Add closed tag of suboard
-            articles_html.append ('            </section>')
-
-        # Add gir close
-
+        # Add of board close
         articles_html.append ('        </div>')
 
         return articles_html
