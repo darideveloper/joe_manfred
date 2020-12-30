@@ -58,6 +58,7 @@ h1 {
 
 .button {
     box-shadow: 0px 4px 10px rgba(0,0,0,.25);
+    cursor: pointer;
 }
 
 .button:hover {
@@ -80,10 +81,15 @@ h1 {
     box-shadow: inset 1px 1px 1px rgba(0,0,0,.25)
 }
 
+.section-button {
+    cursor: pointer;
+}
+
 a {
     text-decoration: underline;
     font-size: var(--font-size-links);
     color: var(--color-dark-blue);
+    cursor: pointer;
 }
 
 .link:hover {

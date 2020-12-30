@@ -83,7 +83,7 @@ h3,p, p > a {
 
 }
 
-@media screen and (max-width: 767px) {
+@media screen and (max-width: 768px) {
     /* Mobile L */
 
     /* Resize image with class */
@@ -101,4 +101,40 @@ h3,p, p > a {
         height: auto;
         width: calc(100vw - 0px)
     }    
+
+    /* Reponsive video articles */
+    .video-container {
+        display: block;
+    }
+
+
+    .video-container .main-video {
+        height: auto;
+        width: 100%;
+        margin: 0px;
+        margin-bottom: 30px;
+        }
+
+    .video-container .main-video iframe {
+        width: 100%;
+        height: calc(((100vw))/1.7777);
+        margin: 0px auto;
+        padding: 0px;
+    }
+
+    .video-container .final-image {
+        width: 80%;
+        margin: 0 auto;
+    }
+    
+}
+
+@media screen and (max-width: 375px) {
+    /* Mobile M */
+
+    .board, #board  {
+        --columns:1;
+    }
+
+
 }

@@ -169,7 +169,7 @@ class Generate ():
 
 
                 articles_html.append ('                            </figure>')
-                articles_html.append ('                            <h3>{}</h3>'.format(name))
+                articles_html.append ('                            <h3>{}</h3>'.format(name.title()))
                 articles_html.append ('                        </a>')
                 articles_html.append ('                   </article>')
                 articles_html.append ('                </div>')
