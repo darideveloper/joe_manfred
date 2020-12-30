@@ -14,7 +14,7 @@ link_videos = document.querySelector (".link.videos")
 link_contact = document.querySelector (".link.contact")
 
 function redireccionar(link) {
-    setTimeout(function () { window.location.href = '/path' + link }, 1000);
+    setTimeout(function () { window.location.href = '' + link }, 1000);
 }
 
 link_home.addEventListener("click", function () { redireccionar("index.html")}) 
