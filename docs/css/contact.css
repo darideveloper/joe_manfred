@@ -1,0 +1,104 @@
+/* Contact me -------------------- */
+
+.container-contact {
+    margin-bottom: 50px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto;
+    grid-template-areas: "image-profile form"
+                         "artist-quote form";
+    justify-items: center;
+    gap: 5%;
+}
+
+
+.profile-logo {
+    grid-area: image-profile;
+    width: 400px;
+    height: 400px;
+    border-radius: 50%;
+    overflow: hidden;
+    justify-self: end;
+}
+
+.profile-logo img {
+    grid-area: image-profile;
+    width: 100%;
+    height: 100%;
+}
+
+.quote-container {
+    grid-area: artist-quote;
+    width: calc(100% - 50px);
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    background-color: var(--color-blue);
+    padding: 40px;
+}
+
+.quote {
+    width: 70%;
+    display: grid;
+    grid-template-columns: auto auto auto;
+    grid-template-rows: 1fr;
+    color: var(--color-white);
+}
+
+.quote p:nth-child(2) {
+    text-align: center;
+}
+
+
+.quote p:nth-child(1) {
+    font-size: var(--font-size-h1);
+    line-height: 32px;
+    margin: 0;
+    align-self: start;
+}
+
+.quote p:nth-child(3) {
+    font-size: var(--font-size-h1);
+    line-height: 32px;
+    margin: 0;
+    align-self: end;
+}
+
+.form {
+    justify-self: start;
+    grid-area: form;
+    width: 80%;
+    height: auto;
+    position: relative;
+    align-self: center;
+    text-align: center;
+    text-decoration: none;
+}
+
+.input-text {
+    background-color: rgba(0,0,0,0);
+    border-radius: 16px;
+    border: 2px solid var(--color-dark-blue);
+    width: calc(100% - 40px);
+    font-size: 18px;
+    margin-bottom: 30px;
+    padding: 4px 20px;
+}
+
+.input-text:focus {
+    border: 4px solid var(--color-dark-blue);
+    outline: none;
+}
+
+
+.form label {
+    font-size: var(--font-size-text)
+}
+
+.input-submit {
+    font-size: var(--font-size-h2);
+    color: var(--color-dark-blue);
+    background-color: rgba(0,0,0,0);
+    border: none;
+    width: 60%;
+}
