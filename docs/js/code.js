@@ -15,7 +15,8 @@ link_contact = document.querySelector (".link.contact")
 
 function redireccionar(link) {
     setTimeout(function () { window.location.href = '/path/joe_manfred/' + link }, 1000);
-    
+}
+
 link_home.addEventListener("click", function () { redireccionar("index.html")}) 
 link_best.addEventListener("click", function () {redireccionar ("board-best.html")})
 link_all.addEventListener("click", function () {redireccionar ("board-all.html")})
