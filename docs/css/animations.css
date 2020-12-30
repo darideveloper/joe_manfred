@@ -104,10 +104,9 @@ article a figure.video:hover video {
 
 .nav-slide {
     transition: transform 1.5s;
-    transform: translate(0px);  
 }
 
-.nav-slide.hide {
+.nav-slide.show {
     transition: transform 1.5s;
-    transform: translate(-150vw);  
+    transform: translate(150vw);  
 }

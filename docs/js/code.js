@@ -15,9 +15,9 @@ function show_hide_slide_menu () {
     status_slide_menu = !status_slide_menu
 
     if (status_slide_menu == true) {
-        slide_menu.classList.remove ("hide")
+        slide_menu.classList.add ("show")
     } else {
-        slide_menu.classList.add ("hide")
+        slide_menu.classList.remove ("show")
     }
 }
 

@@ -180,12 +180,13 @@ footer * {
     text-align: center;
     position: fixed;
     z-index: 3;
-    left: 0px;
+    left: -150vw;
     top: 0px;
-    display: flex;
+    display: none;
     align-items: center;
     justify-content: center;
 }
+
 
 .nav-slide  > nav > ul > li > a {
     color: var(--color-white);
@@ -234,6 +235,10 @@ footer * {
 
     .header {
         display: none;
+    }
+
+    .nav-slide {
+        display: flex;
     }
 
     /* Slide menu */
