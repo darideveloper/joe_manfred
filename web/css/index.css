@@ -197,23 +197,6 @@ article figure img {
 
 }
 
-/* Burger button*/
-.icon-th-menu {
-    border-radius: 50%;
-    background-color: var(--color-dark-blue);
-    display: block;
-    text-align: center;
-    position: fixed;
-    z-index: 4;
-    left: 5px;
-    top: 5px;
-    padding: 10px 10px;
-    font-size: 20px;
-    color: var(--color-white);
-    display: none;
-}
-
-
 /* Responsive */
 @media screen and (min-width: 2559px) {
 
@@ -259,16 +242,6 @@ article figure img {
 
     /* Mobile L */
 
-    :root {
-        --padding-section: 0 30px;
-        --font-size-text: 12px;
-        --font-size-h1: 40px;
-        --font-size-h2: 20px;
-        --font-size-h3: 14px;
-        --font-size-small: 10px;
-        --font-size-links: 14px;
-    }
-
     article figure {
         height: calc(var(--article-height)*.50);
     }
@@ -293,67 +266,17 @@ article figure img {
         margin: 50px;
     }
 
-    .icon-th-menu {
-        display: block;
-    }
-    
-    .header {
-        display: none;
-    }
-
-    /* Slide menu */
-    .nav-slide  > nav > ul > li > a {
-        font-size: var(--font-size-h2);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
-    
-    .nav-slide  > nav > ul > li {
-        margin-top: 30px 0;
-    }
-    
-    .nav-slide .logo {
-        width: 150px;
-        height: 150px;
-    }
-
 }
 
 @media screen and (max-width: 375px) {
+    /* Mobile M */
+
     .contact .contact-button {
         padding: 7px 30%;
-    }
-
-    .nav-slide .logo {
-        display: block;
     }
 }
 
 @media screen and (max-width: 320px) {
-    :root {
-        --font-size-small: 8px;
-    }
+    /* Movile S */
 
-    .nav-slide {
-        display: block;
-    }
-
-    .nav-slide a {
-        width: 100%;
-    }
-
-    .nav-slide .logo {
-        margin: 0 auto;
-        display: block;
-        width: 100px;
-        height: 100px;
-        margin-top: calc(100vh/2 - 50px - 93px)
-    }
-
-    .nav-slide nav, .nav-slide nav ul {
-        width: 100%;
-        margin: 0;
-        padding: 0;
-    }
 }

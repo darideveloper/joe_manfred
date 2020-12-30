@@ -89,7 +89,7 @@ class Generate ():
         
             counter_line += 1
 
-        # Position of each section ¿value inside the data file
+        # Position of each section value inside the data file
         index_section_best = 5
         index_section_all = 4
         index_section_videos = 3
