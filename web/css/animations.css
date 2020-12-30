@@ -99,3 +99,15 @@ article a figure.video:hover video {
     height: auto;
     width: 100%;
 }
+
+/* Slide menu */
+
+.nav-slide {
+    transition: transform 1.5s;
+    transform: translate(0px);  
+}
+
+.nav-slide.hide {
+    transition: transform 1.5s;
+    transform: translate(-150vw);  
+}

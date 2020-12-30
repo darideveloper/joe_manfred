@@ -7,12 +7,14 @@
     --color-light-blue: #D0E8F2;
     --color-blue: #79A3B1; 
     --color-dark-blue: #456268;
+    --color-dark-blue-transparent: #456268f6;
     --font-size-text: 14px;
     --font-size-links: 24px;
     --font-size-h1: 64px;
     --font-size-h2: 36px;
     --font-size-h3: 18px;
     --font-size-small: 11px;
+    --article-height: 250px;
 }
 
 /* General -------------------- */
@@ -168,4 +170,29 @@ footer * {
     color: var(--color-dark-blue);
     height: 30px;
     line-height: 30px;
+}
+
+/* Slide menu */
+.nav-slide {
+    width: 100vw;
+    height: 100vh;
+    background-color: var(--color-dark-blue-transparent);
+    text-align: center;
+    position: fixed;
+    z-index: 3;
+    left: 0px;
+    top: 0px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.nav-slide  > nav > ul > li > a {
+    color: var(--color-white);
+    text-decoration: underline;
+}
+
+.nav-slide  > nav > ul > li {
+    list-style: none;
+    margin: 30px; 
 }
