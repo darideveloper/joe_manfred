@@ -8,7 +8,7 @@ from video_master import Video_master
 
 # Paths
 parent_path = os.path.dirname (os.path.dirname (__file__))
-path = os.path.join (parent_path, "web")
+path = os.path.join (parent_path, "docs")
 
 # processing videos
 videos_path = os.path.join (path, "video")
