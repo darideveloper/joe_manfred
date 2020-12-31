@@ -31,7 +31,7 @@ main {
     margin: 0;
     padding: 0;
     background-color: var(--color-white);
-    padding-bottom: 70px;
+    min-height: 100vh;
 }
 
 h1 {
@@ -220,8 +220,7 @@ footer * {
     display: none;
 }
 
-/* General Media Queries */
-
+/* General Media Queries responsive */
 @media screen and (max-width: 767px) {
     /* Mobile L */
 
