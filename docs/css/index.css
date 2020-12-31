@@ -165,7 +165,7 @@ article figure img {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-bottom: 50px;
+    padding-bottom: 50px;
 }
 
 .contact .social-buttons * {

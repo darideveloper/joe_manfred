@@ -7,12 +7,12 @@
 }
 
 .board, #board {
-    --columns:4;
+    --columns: 4;
     --gap: 20px;
-    margin: 50px;
+    padding: 50px;
     display: grid;
     grid-template-columns: repeat(var(--columns), 1fr);
-    grid-gap: var(--gap)
+    grid-gap: var(--gap);
 }
 
  /* Articles */
@@ -31,6 +31,11 @@ article figure img {
     width: 100%;
 }
 
+
+@media screen and (min-width: 768px) {
+    /* Mobile L */
+
+}
 
 
 @media screen and (max-width: 767px) {

@@ -31,7 +31,7 @@ main {
     margin: 0;
     padding: 0;
     background-color: var(--color-white);
-    min-height: 100vh;
+    min-height: calc(100vh - 80px - 30px);
 }
 
 h1 {
@@ -262,7 +262,11 @@ footer * {
         width: 150px;
         height: 150px;
     }
-    
+
+
+    main {
+        min-height: calc(100vh - 30px);
+    }    
 }
 
 @media screen and (max-width: 375px) {
