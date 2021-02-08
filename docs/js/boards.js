@@ -17,7 +17,7 @@ link_contact.addEventListener("click", function () {redireccionar ("contact.html
 
 // Mansory layout
 const masonry_layout = (container_elem, items_elem, columns) => {
-    container_elem.classList.add("board", 'columns-' + columns)
+    container_elem.classList.add("board", 'columns-' + columns[1])
     let columns_elements = []
 
     for (let i=1; i <= columns; i++) {
@@ -52,8 +52,6 @@ function update_page () {
     
     let new_w_query = get_query_num(new_w)
     let w_query = get_query_num (w)
-
-    console.log (w_query, new_w_query)
 
     if (w_query != new_w_query) {
         location.reload()
