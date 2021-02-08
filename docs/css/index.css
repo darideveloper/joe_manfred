@@ -46,7 +46,9 @@ h2 {
     display: flex;
     justify-content: start;
     align-items: center;
-    overflow-x: hidden;
+    cursor: grab;
+    overflow-x: scroll;
+    overflow-y: hidden;
 }
 
 .article-container {
