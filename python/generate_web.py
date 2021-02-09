@@ -72,20 +72,20 @@ class Generate ():
             lines_html.append (line)
 
             # Identify speicic line in the text
-            elemnt = '<img src="imgs/arrow.png" alt="">'
+            elemnt = '<div class="articles-container">'
 
             # Get position of each line for each section
             if line.strip() == elemnt: 
                 elements_counter += 1
 
+                if elements_counter == 1:
+                    best_position = counter_line + 1
+                
                 if elements_counter == 2:
-                    best_position = counter_line + 4
+                    all_position = counter_line + 1
                 
-                if elements_counter == 4:
-                    all_position = counter_line + 4
-                
-                if elements_counter == 6:
-                    videos_position = counter_line + 4
+                if elements_counter == 3:
+                    videos_position = counter_line + 1
         
             counter_line += 1
 
@@ -158,19 +158,17 @@ class Generate ():
                 # Generate article html
                 articles_html.append ('                <div class="article-container button">')
                 articles_html.append ('                    <article>')
-                articles_html.append ('                        <a href="{}">'.format (link))
-                articles_html.append ('                            <figure class={}>'.format(class_article))
-                articles_html.append ('                                <img src="{}"  alt="">'.format (src))
+                articles_html.append ('                        <figure class={}>'.format(class_article))
+                articles_html.append ('                            <img src="{}"  alt="">'.format (src))
 
                 # If its videos, ad preview
                 if class_article == "video": 
-                    articles_html.append ('                                <video src="{}" {} type="video/mp4" autoplay muted loop></video>'.format (scr_video, video_size))
+                    articles_html.append ('                            <video src="{}" {} type="video/mp4" autoplay muted loop></video>'.format (scr_video, video_size))
 
 
 
-                articles_html.append ('                            </figure>')
-                articles_html.append ('                            <h3>{}</h3>'.format(name.title()))
-                articles_html.append ('                        </a>')
+                articles_html.append ('                        </figure>')
+                articles_html.append ('                        <h3>{}</h3>'.format(name.title()))
                 articles_html.append ('                   </article>')
                 articles_html.append ('                </div>')
 
