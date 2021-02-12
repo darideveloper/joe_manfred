@@ -1,26 +1,26 @@
 /* Zoom articles animation */
-article a figure.img img {
+article figure.img img {
     transition: transform 1s;
 }
 
-article:hover a figure.img img {
+article:hover figure.img img {
     transform: scale(1.5);
 }
 
 /* Video preview */
-article a figure.video img {
+article figure.video img {
     display: block;
 }
 
-article a figure.video video {
+article figure.video video {
     display: none;
 }
 
-article a figure.video:hover img {
+article figure.video:hover img {
     display: none;
 }
 
-article a figure.video:hover video {
+article figure.video:hover video {
     display: block;
 }
 

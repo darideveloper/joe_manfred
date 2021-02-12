@@ -25,6 +25,9 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-.icon-th-menu:before {
+.icon-menu:before {
   content: "\e900";
+}
+.icon-arrow-right2:after {
+  content: "\ea3c";
 }

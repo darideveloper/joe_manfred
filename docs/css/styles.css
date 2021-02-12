@@ -218,7 +218,7 @@ footer * {
 }
 
 /* Burger button*/
-.icon-th-menu {
+.icon-menu {
     border-radius: 50%;
     background-color: var(--color-dark-blue);
     display: block;
@@ -247,7 +247,7 @@ footer * {
         --font-size-links: 14px;
     }
 
-    .icon-th-menu {
+    .icon-menu {
         display: block;
     }
 
