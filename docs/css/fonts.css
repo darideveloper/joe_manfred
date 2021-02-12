@@ -34,3 +34,27 @@
 .icon-arrow-left2:before {
   content: "\ea40";
 }
+
+/* Fonts */
+@font-face {
+  font-family: 'Lato';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Lato-Regular'), url(../fonts/Lato-Regular.ttf)
+}
+
+@font-face {
+  font-family: 'Lato';
+  font-style: normal;
+  font-weight: bold;
+  src: local('Lato-Regular'), url(../fonts/Lato-Bold.ttf)
+}
+
+
+@font-face {
+  font-family: 'Metal Mania';
+  font-style: normal;
+  font-weight: normal;
+  src: local('MetalMania-Regular'), url(../fonts/MetalMania-Regular.ttf)
+}
+

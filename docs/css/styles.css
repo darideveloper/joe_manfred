@@ -103,6 +103,7 @@ a {
     font-size: var(--font-size-links);
     color: var(--color-dark-blue);
     cursor: pointer;
+    font-weight: bold;
 }
 
 .link:hover {
