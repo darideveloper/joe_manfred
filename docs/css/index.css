@@ -49,6 +49,8 @@ h2 {
     cursor: grab;
     overflow-x: scroll;
     overflow-y: hidden;
+    scroll-behavior: smooth;
+    scroll-margin: 150px 150px;
 }
 
 .article-container {
