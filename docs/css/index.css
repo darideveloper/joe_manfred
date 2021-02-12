@@ -13,11 +13,29 @@ h2 {
     display: inline;
     margin: 0;
     padding: 0;
-    width: 100%;
+    width: 50%;
     font-family: var(--font-titles);
     font-size: var(--font-size-h2);
     color: var(--color-dark-blue);
-    text-align: center;
+    text-align: left;
+}
+
+.buttons_slide {
+    width: 50%;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.buttons_slide div {
+    width: 80px;
+    height: 30px;
+    margin: 10px;
+    background-color: var(--color-blue);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-white);
+
 }
 
 .header-section a {

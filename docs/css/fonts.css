@@ -28,6 +28,9 @@
 .icon-menu:before {
   content: "\e900";
 }
-.icon-arrow-right2:after {
+.icon-arrow-right2:before {
   content: "\ea3c";
+}
+.icon-arrow-left2:before {
+  content: "\ea40";
 }
