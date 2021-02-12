@@ -4,25 +4,6 @@ function redirect(link, time) {
     setTimeout(function () { window.location.href = '' + link }, time);
 }
 
-async function hide_board_buttons () {
-    // Run "hide_les_10 function, for each right slide button
-
-    // Loop for each section
-    for (var index_section in sections_selector) {
-        let button_selector = sections_selector[index_section] + " > header > a"
-        let see_all_button = document.querySelector (button_selector)
-        let articles_selector = sections_selector[index_section] + " > div > div.article-container"
-
-        // Count articles in section
-        articles_num = document.querySelectorAll (articles_selector).length
-
-        // Hide "show all" buton if articles is less 10
-        if (articles_num < 10) {
-            see_all_button.classList.add ("hide")
-        }
-    } 
-}
-
 let sliding = false 
 function create_slides () {
     // Add slide for each section
@@ -82,8 +63,28 @@ function add_links_to_articles () {
             // Validate the node
             if (typeof (current_article) == "object") {
                 // Extract title and strip
-                let text = String(current_article.childNodes[3].textContent).replace(/^\s+|\s+$/g, "").toLowerCase().replaceAll(" ", "-")
-                let link = "articles/" + text + ".html"
+                let elem = current_article.childNodes[3]
+                let text = String(elem.textContent).replace(/^\s+|\s+$/g, "").toLowerCase().replaceAll(" ", "-")
+                let link = ""
+                
+                if (text == "see-all") {
+                    // Create links for "see all" articles
+                    let id = elem.childNodes[1].id
+                    console.log (id, text)
+
+                    if (id == "last-best") {
+                        link = "board-best.html"
+                    } else if (id == "last-all") {
+                        link = "board-all.html"
+                    } else if (id == "last-videos") {
+                        link = "board-videos.html"
+                    }
+                    
+                } else {
+                    // Create links for all other articles
+                    link = "articles/" + text + ".html"
+                }
+                
 
                 console.log (link)
                 
@@ -119,5 +120,4 @@ link_videos.addEventListener("click", function () {redirect ("board-videos.html"
 link_contact.addEventListener("click", function () {redirect ("contact.html", 1000)})
 
 
-hide_board_buttons ()
 create_slides()
