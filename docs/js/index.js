@@ -116,26 +116,61 @@ function update_gradiants_scroll () {
         slider.addEventListener ('scroll', function (e) {
             let vw = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0)
             // Add and remove classes to hide right gradiant
-            if (slider.scrollLeft == 0) {
+            if (slider.scrollLeft <= (slider.scrollWidth)*.02) {
                 gradiant_left.classList.add ("hide")
             } else {
                 gradiant_left.classList.remove ("hide")
             }
             
             // Add and remove classes to hide left gradiant
-            if (slider.scrollLeft + vw == slider.scrollWidth) {
+            if (slider.scrollLeft + vw >= (slider.scrollWidth)*.98) {
                 gradiant_right.classList.add ("hide")
             } else {
                 gradiant_right.classList.remove ("hide")
             }
         }, false)
+    }
+}
 
+function buttons_slider () {
+    // Add functionality to slider buttons (slide to right or left)
+
+    for (selector_id in sections_selector) {
+
+        // Selectors
+        let selector_buttons = sections_selector[selector_id] + " > header > div.buttons_slide > div.button-small"
+        let selector_slider = sections_selector[selector_id] + " > div"
+
+        // Elements
+        let buttons = document.querySelectorAll (selector_buttons)
+        let slider = document.querySelector (selector_slider)
+        let button_left = buttons[0]
+        let button_right = buttons[1]
+
+        
+
+
+        button_left.addEventListener ("click", function (e) {
+            let vw = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0)
+            slider.scrollLeft -= (vw)*.8
+        }, false)
+
+        button_right.addEventListener ("click", function (e) {
+            let vw = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0)
+            slider.scrollLeft += (vw)*.8
+        }, false)
+
+        
+    
     }
 
+
+
     
+
 }
 
 add_links_to_articles()
 create_slides()
 update_gradiants_scroll()
-
+buttons_slider()
