@@ -35,7 +35,7 @@
 body {
     margin: 0;
     padding: 0;
-    font-family: 'Lato', sans-serif;
+    font-family: var(--font-text);
     font-size: var(--font-size);
     overflow-x: hidden;
 }
@@ -135,7 +135,6 @@ article figure {
 h3 {
     margin: 7px 0;
     padding: 0;
-    font-weight: bold;
     font-size: var(--font-size-h3);
     color: var(--color-white);
     text-align: center;
