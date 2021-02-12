@@ -68,7 +68,7 @@ function add_links_to_articles () {
                 
                 if (text == "see-all") {
                     // Create links for "see all" articles
-                    let id = elem.childNodes[1].id
+                    let id = elem.childNodes[1].childNodes[1].id
 
                     if (id == "last-best") {
                         link = "board-best.html"
@@ -92,8 +92,6 @@ function add_links_to_articles () {
                         redirect (link, 100)
                     }
                 })
-
-                
             }
         }
     }
@@ -159,15 +157,7 @@ function buttons_slider () {
             let vw = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0)
             slider.scrollLeft += (vw)*.8
         }, false)
-
-        
-    
     }
-
-
-
-    
-
 }
 
 add_links_to_articles()
