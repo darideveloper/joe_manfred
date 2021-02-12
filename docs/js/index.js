@@ -39,7 +39,6 @@ function create_slides () {
                 const x = e.pageX - slider.offsetLeft;
                 const walk = (x - startX) * 1; //scroll-fast
                 slider.scrollLeft = scrollLeft - walk;
-                console.log(walk);
             } else {
                 sliding = false
             }
@@ -70,7 +69,6 @@ function add_links_to_articles () {
                 if (text == "see-all") {
                     // Create links for "see all" articles
                     let id = elem.childNodes[1].id
-                    console.log (id, text)
 
                     if (id == "last-best") {
                         link = "board-best.html"
@@ -85,8 +83,6 @@ function add_links_to_articles () {
                     link = "articles/" + text + ".html"
                 }
                 
-
-                console.log (link)
                 
                 // Add listener to open link
                 current_article.addEventListener("click", function () {
@@ -103,21 +99,43 @@ function add_links_to_articles () {
     }
 }
 
+function update_gradiants_scroll () {
+    // Update gradins with scroll events
+    for (selector_id in sections_selector) {
+        
+        // Selectors of slide and gradiants
+        let selector_slide = sections_selector[selector_id] + " > div"
+        let selector_gradiant_right = sections_selector[selector_id] + " > header > div.gradiants > div.right"
+        let selector_gradiant_left = sections_selector[selector_id] + " > header > div.gradiants > div.left"
+
+        // Sliders and gradiants elements
+        let slider = document.querySelector (selector_slide)
+        let gradiant_right = document.querySelector (selector_gradiant_right)
+        let gradiant_left = document.querySelector (selector_gradiant_left)
+
+        slider.addEventListener ('scroll', function (e) {
+            let vw = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0)
+            // Add and remove classes to hide right gradiant
+            if (slider.scrollLeft == 0) {
+                gradiant_left.classList.add ("hide")
+            } else {
+                gradiant_left.classList.remove ("hide")
+            }
+            
+            // Add and remove classes to hide left gradiant
+            if (slider.scrollLeft + vw == slider.scrollWidth) {
+                gradiant_right.classList.add ("hide")
+            } else {
+                gradiant_right.classList.remove ("hide")
+            }
+        }, false)
+
+    }
+
+    
+}
+
 add_links_to_articles()
-
-
-// Open links in slide menu
-link_home = document.querySelector (".home")
-link_best = document.querySelector (".link.best")
-link_all = document.querySelector (".link.all")
-link_videos = document.querySelector (".link.videos")
-link_contact = document.querySelector (".link.contact")
-
-link_home.addEventListener("click", function () { redirect("index.html", 1000)}) 
-link_best.addEventListener("click", function () {redirect ("board-best.html", 1000)})
-link_all.addEventListener("click", function () {redirect ("board-all.html", 1000)})
-link_videos.addEventListener("click", function () {redirect ("board-videos.html", 1000)})
-link_contact.addEventListener("click", function () {redirect ("contact.html", 1000)})
-
-
 create_slides()
+update_gradiants_scroll()
+

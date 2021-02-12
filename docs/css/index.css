@@ -85,17 +85,30 @@ h2 {
     margin-right: 30px;
 }
 
+.article-container.last_elem.button {
+    background: none;
+    box-shadow: none;
+}
+
 .article-container.last_elem article {
     width: 200px;
-    height: 250px;
+    height: calc(var(--article-height)*1);
     display: flex;
     align-items: center;
+}
+
+.article-container.last_elem > article > .article_content {
+    width: 150px;
+    height: 100%;
+    background: var(--color-blue);
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .article-container.last_elem h3 {
     text-align: center;
     font-size: calc(var(--font-size-h2)*.77);
-    margin-left: 38px;
 }
 
 .article-container.last_elem article:hover h3 {

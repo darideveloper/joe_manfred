@@ -1,3 +1,5 @@
+/* INDEX PAGE */
+
 /* Zoom articles animation */
 article figure.img img {
     transition: transform 1s;
@@ -32,6 +34,21 @@ article figure.video:hover video {
     transform: scale(1.5);
 }
 
+/* Gradiants slider animations */
+div.gradiants > div {
+    -webkit-transition: background 0.2s linear;
+    -moz-transition: background 0.2s linear;
+    -o-transition: background 0.2s linear;
+    transition: opacity 0.25s linear;
+}
+
+div.gradiants > div.left.hide {
+    opacity: 0%;
+}
+
+div.gradiants > div.right.hide {
+    opacity: 0%;
+}
 
 /* ARTICLE PAGE*/
 
@@ -100,13 +117,3 @@ article figure.video:hover video {
     width: 100%;
 }
 
-/* Slide menu */
-
-.nav-slide {
-    transition: transform 1.5s;
-}
-
-.nav-slide.show {
-    transition: transform 1.5s;
-    transform: translate(150vw);  
-}
