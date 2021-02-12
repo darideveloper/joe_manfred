@@ -6,6 +6,7 @@
     display: flex;
     justify-content: left;
     align-items: center;
+    position: relative;
 }
 
 
@@ -29,7 +30,7 @@ h2 {
 .buttons_slide div {
     width: 80px;
     height: 30px;
-    margin: 10px;
+    margin-left: 20px;
     background-color: var(--color-blue);
     display: flex;
     align-items: center;
@@ -38,19 +39,26 @@ h2 {
 
 }
 
-.header-section a {
-    display: inline;
-    margin: 0;
-    padding: 0;
-    width: 50%;
-    font-size: var(--font-size-links);
-    color: var(--color-dark-blue);
-    text-align: right;
+.gradiants div {
+    position: absolute;
+    background-color: var(--color-white);
+    width: 100px;
+    height: 50px;
+    top: 70px;
+    height: 350px;
+    z-index: 1;    
 }
 
-.header-section a.hide {
-    display: none;
+.gradiants .left {
+    left: 0px;
+    background: linear-gradient(90deg, var(--color-white) 50%, rgba(255,0,0,0) 100%);
 }
+
+.gradiants .right {
+    right: 0px;
+    background: linear-gradient(90deg,rgba(255,0,0,0) 0%, var(--color-white) 50%);
+}
+
 
 /* Articles -------------------- */
 
@@ -87,7 +95,7 @@ h2 {
 .article-container.last_elem h3 {
     text-align: center;
     font-size: calc(var(--font-size-h2)*.77);
-    margin-left: 20px;
+    margin-left: 38px;
 }
 
 .article-container.last_elem article:hover h3 {
