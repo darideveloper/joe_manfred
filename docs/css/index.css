@@ -25,6 +25,7 @@ h2 {
     width: 50%;
     display: flex;
     justify-content: flex-end;
+    z-index: 2;
 }
 
 .buttons_slide div {
@@ -43,7 +44,7 @@ h2 {
     position: absolute;
     background-color: var(--color-white);
     width: calc(var(--article-height)*0.4);
-    top: 200%;
+    top: 180%;
     height: calc(var(--article-height)*1.6);
     z-index: 1;    
 }
