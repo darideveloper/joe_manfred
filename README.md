@@ -51,10 +51,10 @@ The page have the categories: My best works, Last works and Video; each category
 
 # Roadmap
 
-* [X] Layout\r
-* [X] Responsive\r
-* [X] Hover animations\r
-* [X] Categories\r
+* [X] Layout
+* [X] Responsive
+* [X] Hover animations
+* [X] Categories
 * [X] Masonry layout
 
 
