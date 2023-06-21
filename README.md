@@ -1,5 +1,5 @@
-<div><a href='https://github.com/github.com/darideveloper/blob/master/LICENSE' target='_blank'>
-            <img src='https://img.shields.io/github/license/github.com/darideveloper.svg?style=for-the-badge' alt='MIT License' height='30px'/>
+<div><a href='https://github.com/darideveloper/joe_manfred/blob/master/LICENSE' target='_blank'>
+            <img src='https://img.shields.io/github/license/darideveloper/joe_manfred.svg?style=for-the-badge' alt='MIT License' height='30px'/>
         </a><a href='https://www.linkedin.com/in/francisco-dari-hernandez-6456b6181/' target='_blank'>
                 <img src='https://img.shields.io/static/v1?style=for-the-badge&message=LinkedIn&color=0A66C2&logo=LinkedIn&logoColor=FFFFFF&label=' alt='Linkedin' height='30px'/>
             </a><a href='https://t.me/darideveloper' target='_blank'>
@@ -20,11 +20,7 @@ Visit at: **[darideveloper.github.io/joe_manfred](https://darideveloper.github.i
 
 Web Page and Portfolio for the artist [Joe Manfred ](https://www.instagram.com/p.o.s.t.mortem/)
 
-Start date: **2021-02-25**
-
-Last update: **2023-03-27**
-
-Project type: **personal's project**
+Project type: **personal**
 
 </div><br><details>
             <summary>Table of Contents</summary>
@@ -56,5 +52,4 @@ The page have the categories: My best works, Last works and Video; each category
 * [X] Hover animations
 * [X] Categories
 * [X] Masonry layout
-
 
